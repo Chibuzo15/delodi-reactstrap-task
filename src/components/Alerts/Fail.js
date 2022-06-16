@@ -8,11 +8,17 @@ const Fail = (props) => {
   const alertsState = useSelector((state) => state.alert);
   const dispatch = useDispatch();
 
-  return alertsState.showError ? (
-    <Alert color="danger" toggle={() => dispatch(hideErrorModal())}>
+  return (
+    <Alert
+      isOpen={alertsState.showError}
+      color="danger"
+      toggle={function noRefCheck() {
+        dispatch(hideErrorModal());
+      }}
+    >
       I am a global danger alert and I can be dismissed!
     </Alert>
-  ) : undefined;
+  );
 };
 
 export default Fail;

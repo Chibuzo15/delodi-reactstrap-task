@@ -8,11 +8,15 @@ const Warning = (props) => {
   const alertsState = useSelector((state) => state.alert);
   const dispatch = useDispatch();
 
-  return alertsState.showWarning ? (
-    <Alert color="warning" toggle={() => dispatch(hideWarningModal())}>
+  return (
+    <Alert
+      isOpen={alertsState.showWarning}
+      color="warning"
+      toggle={() => dispatch(hideWarningModal())}
+    >
       I am a global alert and I can be dismissed!
     </Alert>
-  ) : undefined;
+  );
 };
 
 export default Warning;

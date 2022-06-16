@@ -8,11 +8,15 @@ const Success = (props) => {
   const alertsState = useSelector((state) => state.alert);
   const dispatch = useDispatch();
 
-  return alertsState.showSuccess ? (
-    <Alert color="success" toggle={() => dispatch(hideSuccessModal())}>
+  return (
+    <Alert
+      isOpen={alertsState.showSuccess}
+      color="success"
+      toggle={() => dispatch(hideSuccessModal())}
+    >
       I am a global alert and I can be dismissed!
     </Alert>
-  ) : undefined;
+  );
 };
 
 export default Success;

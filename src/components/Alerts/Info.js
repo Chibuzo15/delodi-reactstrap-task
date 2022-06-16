@@ -23,11 +23,11 @@ const Info = (props) => {
     };
   }, [alertsState.showInfo]);
 
-  return alertsState.showInfo ? (
-    <Alert color="info">
+  return (
+    <Alert isOpen={alertsState.showInfo} color="info">
       I am a global alert and I will dismiss automatically!
     </Alert>
-  ) : undefined;
+  );
 };
 
 export default Info;
