@@ -9,8 +9,12 @@ import {
   showWarningModal,
 } from "../../store/slices/alerts";
 
+import { UncontrolledAlert } from "reactstrap";
+
 const HomePage = () => {
   const dispatch = useDispatch();
+
+  const [showLocal, setShowLocal] = React.useState(false);
 
   const renderButtons = () => {
     return (
@@ -28,10 +32,34 @@ const HomePage = () => {
       </div>
     );
   };
+
+  const renderLocalAlerts = () => {
+    return (
+      <div>
+        <h3>Below are local alerts</h3>
+        <button onClick={() => setShowLocal(true)}>Show Local Alerts</button>
+        {showLocal ? (
+          <div>
+            <UncontrolledAlert color="info">
+              I am an local alert and I can be dismissed!
+            </UncontrolledAlert>
+            <UncontrolledAlert color="danger">
+              I am an local alert and I can be dismissed!
+            </UncontrolledAlert>
+            <UncontrolledAlert color="warning">
+              I am an local alert and I can be dismissed!
+            </UncontrolledAlert>
+          </div>
+        ) : undefined}
+      </div>
+    );
+  };
+
   return (
     <div>
       <h1>This is the Home page</h1>
       {renderButtons()}
+      {renderLocalAlerts()}
       <button>
         <Link to="/other">Go To Next Page </Link>
       </button>
