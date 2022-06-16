@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 
 const Page = () => {
   const renderButtons = () => {
@@ -13,7 +14,11 @@ const Page = () => {
   };
   return (
     <div>
+      <button>
+        <Link to="/">Go Home </Link>
+      </button>
       <h1>This is the other page</h1>
+      {renderButtons()}
     </div>
   );
 };
