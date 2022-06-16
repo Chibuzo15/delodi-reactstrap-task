@@ -15,7 +15,7 @@ export const alertsSlice = createSlice({
   reducers: {
     showSuccessModal: (state, action) => {
       state.showSuccess = true;
-      state.successMessage = action.payload.message;
+      state.successMessage = action.payload?.message;
     },
     hideSuccessModal: (state) => {
       state.successMessage = undefined;
@@ -23,30 +23,30 @@ export const alertsSlice = createSlice({
     },
     //
     showErrorModal: (state, action) => {
-      state.showSuccess = true;
-      state.successMessage = action.payload.message;
+      state.showError = true;
+      state.errorMessage = action.payload?.message;
     },
     hideErrorModal: (state) => {
       state.successMessage = undefined;
-      state.showSuccess = false;
+      state.showError = false;
     },
     //
     showInfoModal: (state, action) => {
-      state.showSuccess = true;
-      state.successMessage = action.payload.message;
+      state.showInfo = true;
+      state.infoMessage = action.payload?.message;
     },
     hideInfoModal: (state) => {
-      state.successMessage = undefined;
-      state.showSuccess = false;
+      state.infoMessage = undefined;
+      state.showInfo = false;
     },
     //
     showWarningModal: (state, action) => {
-      state.showSuccess = true;
-      state.successMessage = action.payload.message;
+      state.showWarning = true;
+      state.warningMessage = action.payload?.message;
     },
     hideWarningModal: (state) => {
-      state.successMessage = undefined;
-      state.showSuccess = false;
+      state.warningMessage = undefined;
+      state.showWarning = false;
     },
   },
 });
